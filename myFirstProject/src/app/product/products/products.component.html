@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let product of products" 
+           [ngClass]="{'red-highlight blink': product.nb_Likes! >= 10}" 
+           style="margin-bottom: 20px;">
+        <img [src]="product.image" alt="{{ product.title }}" class="img-fluid h-50 w-75">
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.description }}</p>
+        <p>Prix : {{ product.price }} €</p>
+        <p>Likes : {{ product.nb_Likes }}</p> 
+        <button class="btn btn-primary" (click)="likeProduct(product)">Like</button> 
+        <button class="btn btn-secondary">Voir détails</button>
+      </div>
+    </div>
+  </div>
+  
