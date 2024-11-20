@@ -21,6 +21,7 @@ import { ContactModule } from './features/contact/contact.module';
 import { FormCategoryComponent } from './components/form-category/form-category.component';
 import { CardComponent } from './components/card/card.component';
 import { ValidationMessagesComponent } from './validation-messages/validation-messages.component';
+import { FormValidationComponent } from './form-validation/form-validation.component';
 
 
 const routes: Routes = [
@@ -61,6 +62,7 @@ const routes: Routes = [
     NotFoundComponent,
     FormCategoryComponent,
     ValidationMessagesComponent,
+    FormValidationComponent,
     
   ],
   imports: [
