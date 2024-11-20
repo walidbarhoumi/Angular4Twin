@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../../../models/product';
 import { ActivatedRoute } from '@angular/router';
+import { shortList } from 'src/app/models/shortList';
 
 @Component({
   selector: 'app-product',
@@ -14,18 +15,18 @@ export class ProductComponent {
   new c2(c4);
 new c3();
 new c1();*/
-  
+
   id!: number;
-  
+
   //Injection des dépendences : Design pattern
   constructor(private activated: ActivatedRoute) {
     //Path Param
     //Méthode 1
     this.activated.params.subscribe(param => this.id = param['id'])
-    
+
     //Méthode 2
     this.activated.paramMap.subscribe(param => console.log(param))
-    
+
     //Méthode 3
     console.log(this.activated.snapshot.params)
 
@@ -36,6 +37,10 @@ new c1();*/
       p.categoryId == this.id
     )
 
+  }
+
+  likeParent(id: number) {
+    this.listProducts.find(p => p.id == id)!.nb_likes++;
   }
 
   price: number = 0;
@@ -110,4 +115,13 @@ new c1();*/
   incrementLikes(element:Product) {
     element.nb_likes++;
   }
+
+  shortList: shortList[] = []; 
+
+  addToShortList(product: shortList) {
+    this.shortList.push(product);
+    console.log('Produit ajouté à la shortlist :', product);
+  }
+
+
 }
